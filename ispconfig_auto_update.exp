@@ -1,0 +1,25 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+spawn ./ispconfig_update.sh --force
+
+expect "Shall the script create a ISPConfig backup*" {
+    send "no\r"
+}
+expect "Reconfigure Permissions in master database*" {
+    send "no\r"
+}
+expect "do you want to enable and configure it*" {
+    send "no\r"
+}
+expect "Reconfigure Services*" {
+    send "yes\r"
+}
+expect "Create new ISPConfig SSL certificate*" {
+    send "no\r"
+}
+expect "Reconfigure Crontab*" {
+    send "no\r"
+}
+
+interact
