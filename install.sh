@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
+set -e  # Exit immediately if a command exits with a non-zero status
 
 if [[ $(id -u) -ne 0 ]]; then
   echo "This script must be executed as root or using sudo"
   exit 99
 fi
-
-set -e  # Exit immediately if a command exits with a non-zero status
 
 echo "🔧 Installing 'expect' package for automating interactive scripts..."
 apt update
