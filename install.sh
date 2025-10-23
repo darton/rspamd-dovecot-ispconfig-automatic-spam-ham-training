@@ -12,8 +12,14 @@ echo "🔧 Installing 'expect' package for automating interactive scripts..."
 apt update
 apt install -y expect
 
+# Check if ISPConfig is installed by verifying the existence of its custom install directory
 echo "📁 Copying custom Dovecot configuration to ISPConfig override directory..."
-cp dovecot_custom.conf.master /usr/local/ispconfig/server/conf-custom/install/
+if [ -d "/usr/local/ispconfig/server/conf-custom/install/" ]; then
+    cp dovecot_custom.conf.master /usr/local/ispconfig/server/conf-custom/install/
+else
+    echo "ISPConfig is not installed or the path does not exist."
+    exit 1
+fi
 
 echo "🔐 Making the Expect script executable..."
 chmod +x ispconfig_auto_update.exp
