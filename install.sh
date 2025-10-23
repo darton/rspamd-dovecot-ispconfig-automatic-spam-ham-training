@@ -1,16 +1,16 @@
 #!/bin/bash
 
-set -e  # zakończ przy pierwszym błędzie
+set -e  # Exit immediately if a command exits with a non-zero status
 
-echo "🔧 Instalacja expect..."
+echo "🔧 Installing 'expect' package for automating interactive scripts..."
 sudo apt update
 sudo apt install -y expect
 
-echo "📁 Kopiowanie pliku konfiguracyjnego dovecot..."
+echo "📁 Copying custom Dovecot configuration to ISPConfig override directory..."
 sudo cp dovecot_custom.conf.master /usr/local/ispconfig/server/conf-custom/install/
 
-echo "🔐 Nadanie uprawnień do skryptu expect..."
+echo "🔐 Making the Expect script executable..."
 sudo chmod +x ispconfig_auto_update.exp
 
-echo "🚀 Uruchamianie automatycznej aktualizacji ISPConfig..."
+echo "🚀 Running automated ISPConfig update via Expect script..."
 sudo ./ispconfig_auto_update.exp
