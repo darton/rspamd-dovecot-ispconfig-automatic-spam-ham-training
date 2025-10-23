@@ -30,3 +30,5 @@ cp rspamd-learn-ham.sh /etc/dovecot/rspamd/
 chmod u=rwx,go= /etc/dovecot/rspamd/rspamd-learn-{spam,ham}.sh
 chown vmail:vmail /etc/dovecot/rspamd/rspamd-learn-{spam,ham}.sh
 
+systemctl restart dovecot
+systemctl restart rspamd
