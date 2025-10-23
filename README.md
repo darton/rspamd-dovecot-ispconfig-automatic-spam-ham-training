@@ -1,0 +1,1 @@
+# rspamd-dovecot-ispconfig-automatic-spam-ham-training
