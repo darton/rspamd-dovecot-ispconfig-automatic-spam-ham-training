@@ -1,7 +1,7 @@
 #!/usr/bin/expect -f
 
 set timeout -1
-spawn ./ispconfig_update.sh --force
+spawn ispconfig_update.sh --force
 
 expect "Shall the script create a ISPConfig backup*" {
     send "no\r"
