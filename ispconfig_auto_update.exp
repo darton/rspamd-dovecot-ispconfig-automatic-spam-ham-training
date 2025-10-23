@@ -3,18 +3,30 @@
 set timeout -1
 spawn ispconfig_update.sh --force
 
-expect "Shall the script create a ISPConfig backup*" {
+expect "Select update method*" {
+    send "stable\r"
+}
+
+expect -re "Shall the script create a ISPConfig backup.*" {
     send "no\r"
 }
+
 expect "Reconfigure Permissions in master database*" {
     send "no\r"
 }
-expect "do you want to enable and configure it*" {
+
+expect -re "do you want to enable and configure it*" {
     send "no\r"
 }
+
 expect "Reconfigure Services*" {
     send "yes\r"
 }
+
+expect "ISPConfig Port*" {
+    send "8080\r"
+}
+
 expect "Create new ISPConfig SSL certificate*" {
     send "no\r"
 }
