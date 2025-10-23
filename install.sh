@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+
+if [[ $(id -u) -ne 0 ]]; then
+  echo "This script must be executed as root or using sudo"
+  exit 99
+fi
 
 set -e  # Exit immediately if a command exits with a non-zero status
 
