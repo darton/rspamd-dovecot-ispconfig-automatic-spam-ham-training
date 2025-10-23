@@ -20,3 +20,7 @@ cp rspamd-learn-spam.sieve /etc/dovecot/rspamd/
 cp rspamd-learn-ham.sieve /etc/dovecot/rspamd/
 sievec /etc/dovecot/rspamd/rspamd-learn-ham.sieve
 sievec /etc/dovecot/rspamd/rspamd-learn-spam.sieve
+
+chmod u=rw,go= /etc/dovecot/rspamd/rspamd-learn-{spam,ham}.{sieve,svbin}
+chown vmail:vmail /etc/dovecot/rspamd/rspamd-learn-{spam,ham}.{sieve,svbin}
+
